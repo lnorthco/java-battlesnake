@@ -121,9 +121,9 @@ public class Snake {
             Map<String, String> response = new HashMap<>();
 			
 			//Get game variables
-			int height = moveRequest.get("board").get("height");
-			int width = moveRequest.get("board").get("height");
-			String myHead = moveRequest.get("you").get("body").get(0);
+			int height = moveRequest.get("board").get("height").intValue();
+			int width = moveRequest.get("board").get("height").intValue();
+			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			//System.out.println(moveRequest.get("board").get("height"));
 			System.out.println(myHead);
 			
