@@ -121,9 +121,9 @@ public class Snake {
             Map<String, String> response = new HashMap<>();
 			
 			//Get board variables
-			//int height = response.board.height;
-			//int width = response.board.width;
-			System.out.println(moveRequest.board);
+			//int height = moveRequest.board.height;
+			//int width = moveRequest.board.width;
+			System.out.println(moveRequest);
 			//System.out.println(width);
 			
 			//Setup some boolean's to see which directions we can go safely.			
