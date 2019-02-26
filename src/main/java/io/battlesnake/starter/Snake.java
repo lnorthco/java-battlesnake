@@ -123,7 +123,7 @@ public class Snake {
 			//Get game variables
 			int height = moveRequest.get("board").get("height");
 			int width = moveRequest.get("board").get("height");
-			int myHead = moveRequest.get("you").get("body").toMap().values().iterator().next();
+			String myHead = moveRequest.get("you").get("body").get(0);
 			//System.out.println(moveRequest.get("board").get("height"));
 			System.out.println(myHead);
 			
