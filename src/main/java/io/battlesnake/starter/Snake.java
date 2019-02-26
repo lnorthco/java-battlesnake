@@ -123,7 +123,7 @@ public class Snake {
 			//Get board variables
 			//int height = moveRequest.board.height;
 			//int width = moveRequest.board.width;
-			System.out.println(moveRequest);
+			System.out.println(moveRequest.get("height");
 			//System.out.println(width);
 			
 			//Setup some boolean's to see which directions we can go safely.			
