@@ -140,10 +140,10 @@ public class Snake {
 			if(myHead.get("x").intValue() == width)right=false;
 
 			
-			if(down){ response.put("move", "down")};
-			else if(up){ response.put("move", "up")};
-			else if(left){ response.put("move", "left")};
-			else if(right){ response.put("move", "right")};
+			if(down)response.put("move", "down");
+			else if(up)response.put("move", "up");
+			else if(left)response.put("move", "left");
+			else if(right)response.put("move", "right");
             //response.put("move", "left");
             return response;
         }
