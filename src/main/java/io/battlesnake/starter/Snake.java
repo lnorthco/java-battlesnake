@@ -151,7 +151,8 @@ public class Snake {
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j).get("body");
 				System.out.println("snakeBody="+snakeBody);
-				System.out.println("snakeSize="+snakeBody.size());
+				int snakeSize = snakeBody.size();
+				System.out.println("snakeSize="+snakeSize);
 				for(int i=0; i<snakeBody.size(); i++){
 					System.out.println("test");
 					System.out.println("x:" + xHead + "=" + snakeBody.get("x").intValue());
