@@ -154,14 +154,14 @@ public class Snake {
 				int snakeSize = snakeBody.size();
 				System.out.println("snakeSize="+snakeSize);
 				for(int i=0; i<snakeSize; i++){
-					System.out.println("test");
-					int snakeBodyx = snakeBody.get(i).get("x").intValue();
-					System.out.println("snakeBodyx=" + snakeBodyx);
-					System.out.println("y:" + yHead + "=" + snakeBody.get(i).get("y").intValue());
-					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead-1)up=false;
-					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead+1)down=false;
-					if(snakeBody.get("x").intValue() == xHead-1 && snakeBody.get("y").intValue() == yHead)left=false;
-					if(snakeBody.get("x").intValue() == xHead+1 && snakeBody.get("y").intValue() == yHead)right=false;
+					int snakeBodyX = snakeBody.get(i).get("x").intValue();
+					int snakeBodyY = snakeBody.get(i).get("y").intValue();
+					//System.out.println("snakeBodyx=" + snakeBodyx);
+					//System.out.println("y:" + yHead + "=" + snakeBody.get(i).get("y").intValue());
+					if(snakeBodyX == xHead && snakeBodyY == yHead-1)up=false;
+					if(snakeBodyX == xHead && snakeBodyY == yHead+1)down=false;
+					if(snakeBodyX == xHead-1 && snakeBodyY == yHead)left=false;
+					if(snakeBodyX == xHead+1 && snakeBodyY == yHead)right=false;
 				}
 			}
 			System.out.println("up="+up);
