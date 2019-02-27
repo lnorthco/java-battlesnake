@@ -148,12 +148,12 @@ public class Snake {
 			JsonNode upNewHead = myHead;
 			ObjectNode objectNode1 = JSON_MAPPER.createObjectNode();
 			objectNode1.put("x", myHead.get("x").intValue());
-			objectNode1.put("y", myHead.get("y").intValue()-1);
+			objectNode1.put("y",(myHead.get("y").intValue()-1));
 			//JsonNode upNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()-1};
 			//JsonNode downNewHead = [{x:myHead.get("x").intValue(),y:myHead.get("y").intValue()+1}];
 			//JsonNode leftNewHead = [{x:myHead.get("x").intValue()-1,y:myHead.get("y").intValue()}];
 			//JsonNode rightNewHead = [{x:myHead.get("x").intValue()+1,y:myHead.get("y").intValue()}];
-			System.out.println(upNewHead);
+			System.out.println("upNewHead=" + upNewHead);
 /*
 			//Test if new head location will hit any other snakes or its self. Snakes contains your body.	
 			for(int j=0;j<snakes.length;j++){
