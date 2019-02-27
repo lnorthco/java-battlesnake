@@ -148,11 +148,15 @@ public class Snake {
 			int yHead = myHead.get("y").intValue();
 			int xHead = myHead.get("x").intValue();
 			JsonNode snakeBody;
+			
+			//interating through our snakes
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j).get("body");
 				//System.out.println("snakeBody="+snakeBody);
 				int snakeSize = snakeBody.size();
 				//System.out.println("snakeSize="+snakeSize);
+				
+				//interating through snake bodies and checking if any points match our new head locations
 				for(int i=0; i<snakeSize; i++){
 					int snakeBodyX = snakeBody.get(i).get("x").intValue();
 					int snakeBodyY = snakeBody.get(i).get("y").intValue();
