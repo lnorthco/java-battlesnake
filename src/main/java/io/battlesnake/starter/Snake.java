@@ -129,7 +129,7 @@ public class Snake {
 			JsonNode snakes = moveRequest.get("board").get("snakes");
 			int numOfSnakes = snakes.size();
 			//System.out.println(moveRequest.get("board").get("height"));
-			System.out.println("numOfSnakes=" + numOfSnakes);
+			//System.out.println("numOfSnakes=" + numOfSnakes);
 			
 			//Setup some boolean's to see which directions we can go safely.			
 			boolean up = true;
@@ -150,9 +150,9 @@ public class Snake {
 			JsonNode snakeBody;
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j).get("body");
-				System.out.println("snakeBody="+snakeBody);
+				//System.out.println("snakeBody="+snakeBody);
 				int snakeSize = snakeBody.size();
-				System.out.println("snakeSize="+snakeSize);
+				//System.out.println("snakeSize="+snakeSize);
 				for(int i=0; i<snakeSize; i++){
 					int snakeBodyX = snakeBody.get(i).get("x").intValue();
 					int snakeBodyY = snakeBody.get(i).get("y").intValue();
@@ -164,36 +164,12 @@ public class Snake {
 					if(snakeBodyX == xHead+1 && snakeBodyY == yHead)right=false;
 				}
 			}
-			System.out.println("up="+up);
-			System.out.println("down="+down);
-			System.out.println("left="+left);
-			System.out.println("right="+right);
+			//System.out.println("up="+up);
+			//System.out.println("down="+down);
+			//System.out.println("left="+left);
+			//System.out.println("right="+right);		
 			
-			//ObjectNode upNode = JSON_MAPPER.createObjectNode();
-			//ArrayNode arrayNode = JSON_MAPPER.createArrayNode();
-			//upNode.put("x", myHead.get("x").intValue());
-			//upNode.put("y",(myHead.get("y").intValue()-1));
-			//arrayNode.add(upNode);
-			//JsonNode upNewHead = arrayNode;
-			//JsonNode upNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()-1};
-			//JsonNode downNewHead = [{x:myHead.get("x").intValue(),y:myHead.get("y").intValue()+1}];
-			//JsonNode leftNewHead = [{x:myHead.get("x").intValue()-1,y:myHead.get("y").intValue()}];
-			//JsonNode rightNewHead = [{x:myHead.get("x").intValue()+1,y:myHead.get("y").intValue()}];
-			//System.out.println("arrayNode=" + arrayNode);
-			//System.out.println("upNewHead=" + upNewHead);
-			//System.out.println("myHead=" + myHead);
-/*
-			//Test if new head location will hit any other snakes or its self. Snakes contains your body.	
-			for(int j=0;j<snakes.length;j++){
-				snakeBody = snakes[j].body;
-				for(int i=0;i<snakeBody.length;i++){
-					if(upNewHead.x==snakeBody[i].x && upNewHead.y==snakeBody[i].y){up=false};
-					if(downNewHead.x==snakeBody[i].x && downNewHead.y==snakeBody[i].y){down=false};
-					if(leftNewHead.x==snakeBody[i].x && leftNewHead.y==snakeBody[i].y){left=false};
-					if(rightNewHead.x==snakeBody[i].x && rightNewHead.y==snakeBody[i].y){right=false};
-				}
-			}
-*/			
+			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
 			
 			if(up)response.put("move", "up");
 			else if(down)response.put("move", "down");
