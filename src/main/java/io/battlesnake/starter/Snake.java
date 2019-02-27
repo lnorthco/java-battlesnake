@@ -149,7 +149,7 @@ public class Snake {
 			int xHead = myHead.get("x").intValue();
 			JsonNode snakeBody;
 			for(int j=0; j<numOfSnakes; j++) {
-				snakeBody = snakes.get(j);
+				snakeBody = snakes.get(j).get("body");
 				System.out.println("snakeBody="+snakeBody);
 				for(int i=0; i<snakeBody.size(); i++){
 					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead-1)up=false;
