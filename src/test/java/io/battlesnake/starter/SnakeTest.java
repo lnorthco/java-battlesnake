@@ -39,13 +39,6 @@ public class SnakeTest {
     }
 
     @Test
-    void moveTest() throws IOException {
-        JsonNode moveRequest = OBJECT_MAPPER.readTree("{}");
-        Map<String, String> response = handler.move(moveRequest);
-        assertEquals("left", response.get("move"));
-    }
-
-    @Test
     void endTest() throws IOException {
         JsonNode endRequest = OBJECT_MAPPER.readTree("{}");
         Map<String, String> response = handler.end(endRequest);

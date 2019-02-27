@@ -133,7 +133,18 @@ public class Snake {
 			boolean left = true;
 			boolean right = true;
 			
-            response.put("move", "left");
+			  //check edges
+			if(myHead.get("y").intValue() == '0') up=false;
+			if(myHead.get("y").intValue() == height) down=false;
+			if(myHead.get("x").intValue() == '0') left=false;
+			if(myHead.get("x").intValue() == width)right=false;
+
+			
+			if(down){ response.put("move", "down")};
+			else if(up){ response.put("move", "up")};
+			else if(left){ response.put("move", "left")};
+			else if(right){ response.put("move", "right")};
+            //response.put("move", "left");
             return response;
         }
 
