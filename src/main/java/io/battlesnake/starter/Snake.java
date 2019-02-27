@@ -151,7 +151,9 @@ public class Snake {
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j).get("body");
 				System.out.println("snakeBody="+snakeBody);
+				System.out.println("snakeSize="+snakeBody.size());
 				for(int i=0; i<snakeBody.size(); i++){
+					System.out.println("test");
 					System.out.println("x:" + xHead + "=" + snakeBody.get("x").intValue());
 					System.out.println("y:" + yHead + "=" + snakeBody.get("y").intValue());
 					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead-1)up=false;
