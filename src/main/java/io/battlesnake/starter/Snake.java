@@ -150,6 +150,7 @@ public class Snake {
 			JsonNode snakeBody;
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j);
+				System.out.println("snakeBody="+snakeBody);
 				for(int i=0; i<snakeBody.size(); i++){
 					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead-1)up=false;
 					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead+1)down=false;
@@ -157,6 +158,10 @@ public class Snake {
 					if(snakeBody.get("x").intValue() == xHead+1 && snakeBody.get("y").intValue() == yHead)right=false;
 				}
 			}
+			System.out.println("up="+up);
+			System.out.println("down="+down);
+			System.out.println("left="+left);
+			System.out.println("right="+right);
 			
 			//ObjectNode upNode = JSON_MAPPER.createObjectNode();
 			//ArrayNode arrayNode = JSON_MAPPER.createArrayNode();
