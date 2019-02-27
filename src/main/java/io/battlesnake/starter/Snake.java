@@ -152,7 +152,7 @@ public class Snake {
 				snakeBody = snakes.get(j).get("body");
 				System.out.println("snakeBody="+snakeBody);
 				int snakeSize = snakeBody.size();
-				//System.out.println("snakeSize="+snakeSize);
+				System.out.println("snakeSize="+snakeSize);
 				for(int i=0; i<snakeSize; i++){
 					System.out.println("test");
 					int snakeBodyx = snakeBody.get(i).get("x").intValue();
