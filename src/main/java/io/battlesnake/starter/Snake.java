@@ -134,9 +134,9 @@ public class Snake {
 			boolean right = true;
 			
 			  //check edges
-			if(myHead.get("y").intValue() == '0') up=false;
+			if(myHead.get("y").intValue() == 0) up=false;
 			if(myHead.get("y").intValue() == height) down=false;
-			if(myHead.get("x").intValue() == '0') left=false;
+			if(myHead.get("x").intValue() == 0) left=false;
 			if(myHead.get("x").intValue() == width)right=false;
 
 			System.out.println("Up =" + up);
