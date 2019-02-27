@@ -124,8 +124,10 @@ public class Snake {
 			int height = moveRequest.get("board").get("height").intValue() - 1;
 			int width = moveRequest.get("board").get("height").intValue() - 1;
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
+			JsonNode snakes = moveRequest.get("board").get("snakes");
+			int numOfSnakes = snakes.size();
 			//System.out.println(moveRequest.get("board").get("height"));
-			System.out.println(myHead);
+			System.out.println("numOfSnakes=" + numOfSnakes);
 			
 			//Setup some boolean's to see which directions we can go safely.			
 			boolean up = true;
@@ -139,7 +141,24 @@ public class Snake {
 			if(myHead.get("x").intValue() == 0) left=false;
 			if(myHead.get("x").intValue() == width)right=false;
 
-			System.out.println("Up =" + up);
+			
+			//Get new possible head locations
+			JsonNode upNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()-1};
+			JsonNode downNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()+1};
+			JsonNode leftNewHead = {x:myHead.get("x").intValue()-1,y:myHead.get("y").intValue()};
+			JsonNode rightNewHead = {x:myHead.get("x").intValue()+1,y:myHead.get("y").intValue()};
+
+			//Test if new head location will hit any other snakes or its self. Snakes contains your body.	
+			for(int j=0;j<snakes.length;j++){
+				snakeBody = snakes[j].body
+				for(int i=0;i<snakeBody.length;i++){
+					if(upNewHead.x==snakeBody[i].x && upNewHead.y==snakeBody[i].y){up=false}
+					if(downNewHead.x==snakeBody[i].x && downNewHead.y==snakeBody[i].y){down=false}
+					if(leftNewHead.x==snakeBody[i].x && leftNewHead.y==snakeBody[i].y){left=false}
+					if(rightNewHead.x==snakeBody[i].x && rightNewHead.y==snakeBody[i].y){right=false}
+				}
+			}
+			
 			
 			if(up)response.put("move", "up");
 			else if(down)response.put("move", "down");
