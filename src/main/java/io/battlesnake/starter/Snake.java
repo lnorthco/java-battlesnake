@@ -139,9 +139,10 @@ public class Snake {
 			if(myHead.get("x").intValue() == '0') left=false;
 			if(myHead.get("x").intValue() == width)right=false;
 
+			System.out.println("Up =" + up);
 			
-			if(down)response.put("move", "down");
-			else if(up)response.put("move", "up");
+			if(up)response.put("move", "up");
+			else if(down)response.put("move", "down");
 			else if(left)response.put("move", "left");
 			else if(right)response.put("move", "right");
             //response.put("move", "left");
