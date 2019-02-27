@@ -2,6 +2,8 @@ package io.battlesnake.starter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Request;
@@ -143,22 +145,27 @@ public class Snake {
 
 			
 			//Get new possible head locations
-			JsonNode upNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()-1};
-			JsonNode downNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()+1};
-			JsonNode leftNewHead = {x:myHead.get("x").intValue()-1,y:myHead.get("y").intValue()};
-			JsonNode rightNewHead = {x:myHead.get("x").intValue()+1,y:myHead.get("y").intValue()};
-
+			JsonNode upNewHead = myHead;
+			ObjectNode objectNode1 = JSON_MAPPER.createObjectNode();
+			objectNode1.put("x", myHead.get("x").intValue());
+			objectNode1.put("y", myHead.get("y").intValue()-1);
+			//JsonNode upNewHead = {x:myHead.get("x").intValue(),y:myHead.get("y").intValue()-1};
+			//JsonNode downNewHead = [{x:myHead.get("x").intValue(),y:myHead.get("y").intValue()+1}];
+			//JsonNode leftNewHead = [{x:myHead.get("x").intValue()-1,y:myHead.get("y").intValue()}];
+			//JsonNode rightNewHead = [{x:myHead.get("x").intValue()+1,y:myHead.get("y").intValue()}];
+			System.out.println(upNewHead);
+/*
 			//Test if new head location will hit any other snakes or its self. Snakes contains your body.	
 			for(int j=0;j<snakes.length;j++){
-				snakeBody = snakes[j].body
+				snakeBody = snakes[j].body;
 				for(int i=0;i<snakeBody.length;i++){
-					if(upNewHead.x==snakeBody[i].x && upNewHead.y==snakeBody[i].y){up=false}
-					if(downNewHead.x==snakeBody[i].x && downNewHead.y==snakeBody[i].y){down=false}
-					if(leftNewHead.x==snakeBody[i].x && leftNewHead.y==snakeBody[i].y){left=false}
-					if(rightNewHead.x==snakeBody[i].x && rightNewHead.y==snakeBody[i].y){right=false}
+					if(upNewHead.x==snakeBody[i].x && upNewHead.y==snakeBody[i].y){up=false};
+					if(downNewHead.x==snakeBody[i].x && downNewHead.y==snakeBody[i].y){down=false};
+					if(leftNewHead.x==snakeBody[i].x && leftNewHead.y==snakeBody[i].y){left=false};
+					if(rightNewHead.x==snakeBody[i].x && rightNewHead.y==snakeBody[i].y){right=false};
 				}
 			}
-			
+*/			
 			
 			if(up)response.put("move", "up");
 			else if(down)response.put("move", "down");
