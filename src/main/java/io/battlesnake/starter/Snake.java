@@ -150,14 +150,14 @@ public class Snake {
 			JsonNode snakeBody;
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j).get("body");
-				//System.out.println("snakeBody="+snakeBody);
+				System.out.println("snakeBody="+snakeBody);
 				int snakeSize = snakeBody.size();
 				//System.out.println("snakeSize="+snakeSize);
 				for(int i=0; i<snakeSize; i++){
 					System.out.println("test");
-					int snakeBodyx = snakeBody.get("x").intValue();
+					int snakeBodyx = snakeBody.get(i).get("x").intValue();
 					System.out.println("snakeBodyx=" + snakeBodyx);
-					System.out.println("y:" + yHead + "=" + snakeBody.get("y").intValue());
+					System.out.println("y:" + yHead + "=" + snakeBody.get(i).get("y").intValue());
 					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead-1)up=false;
 					if(snakeBody.get("x").intValue() == xHead && snakeBody.get("y").intValue() == yHead+1)down=false;
 					if(snakeBody.get("x").intValue() == xHead-1 && snakeBody.get("y").intValue() == yHead)left=false;
