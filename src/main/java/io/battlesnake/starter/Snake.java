@@ -123,10 +123,11 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-			
+			GetGameInfo GetGameInfo = new GetGameInfo(moveRequest); // Instantiate a GetGameInfo, containing relevant information. This cleans up the function
+																	// and allows easy access to information throughout the move function.
 			//Get game variables
-			int height = moveRequest.get("board").get("height").intValue() - 1;
-			int width = moveRequest.get("board").get("height").intValue() - 1;
+			int height = moveRequest.get("board").get("height").intValue() - 1; // Replaced by GetGameInfo.GetBoardSize()
+			int width = moveRequest.get("board").get("height").intValue() - 1;  // See above
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
 			int numOfSnakes = snakes.size();
@@ -162,18 +163,13 @@ public class Snake {
 				for(int i=0; i<snakeSize; i++){
 					int snakeBodyX = snakeBody.get(i).get("x").intValue();
 					int snakeBodyY = snakeBody.get(i).get("y").intValue();
-					//System.out.println("snakeBodyx=" + snakeBodyx);
-					//System.out.println("y:" + yHead + "=" + snakeBody.get(i).get("y").intValue());
+					
 					if(snakeBodyX == xHead && snakeBodyY == yHead-1)up=false;
 					if(snakeBodyX == xHead && snakeBodyY == yHead+1)down=false;
 					if(snakeBodyX == xHead-1 && snakeBodyY == yHead)left=false;
 					if(snakeBodyX == xHead+1 && snakeBodyY == yHead)right=false;
 				}
-			}
-			//System.out.println("up="+up);
-			//System.out.println("down="+down);
-			//System.out.println("left="+left);
-			//System.out.println("right="+right);		
+			}	
 			
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
 			// Determine which directions are safe, then make a move.
