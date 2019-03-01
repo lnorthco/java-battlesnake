@@ -176,11 +176,25 @@ public class Snake {
 			//System.out.println("right="+right);		
 			
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
+			// Determine which directions are safe, then make a move.
+			if (up)
+			{
+				response.put("move", "up");
+			}
+			else if (down)
+			{
+				response.put("move", "down");
+			}
+			else if (left)
+			{
+				response.put("move", "left");	
+			}
+			else if (right)
+			{
+				response.put("move", "right");
+			}
+			// What happens if all the above fail? (we die, ofc, but will it crash?)
 			
-			if(up)response.put("move", "up");
-			else if(down)response.put("move", "down");
-			else if(left)response.put("move", "left");
-			else if(right)response.put("move", "right");
             //response.put("move", "left");
             return response;
         }
