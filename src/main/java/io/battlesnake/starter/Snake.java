@@ -207,12 +207,7 @@ public class Snake {
 					}
 					
 				}
-			int tempDist =	Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
-<<<<<<< HEAD
-			System.out.println("tempDist="+tempDist);
-=======
-			//System.out.println("tempDist="+tempDist);
->>>>>>> 40e2af60e462be3166d02c06009886fca63b15dd
+
 			}
 			
 			//System.out.println("closestFood="+closestFood);

@@ -62,7 +62,14 @@ public class SafeMoves {
 				}
 				
 				// Something above
-				// TBD!
+				if (mySnake.head.y == snakeSegment.y + 1)
+				{
+					up = false;
+				}
+				if (mySnake.head.y == snakeSegment.y - 1)
+				{
+					down = false;
+				}
 			}
 		}
 	}
