@@ -208,7 +208,7 @@ public class Snake {
 					if(distance > Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
-            //safeFood = moveRequest.get("board").get("food").get(k);
+            safeFood = moveRequest.get("board").get("food").get(k);
 					}
 
 				}
@@ -218,24 +218,23 @@ public class Snake {
 			//System.out.println("closestFood="+closestFood);
 			//System.out.println("Shortest Distance: " + distance);
 
-        /*if (mySnake.health <= 50){
-            if (xHead < safeFood.get("x").intValue() && right){
-              //check if safe/best move
-              response.put("move", "right");
+      if (mySnake.health <= 50){
+        if (xHead < safeFood.get("x").intValue() && right){
+          //check if safe/best move
+          response.put("move", "right");
           }
-            else if (xHead > safeFood.get("x").intValue() && left){
-              //check if safe/best move
-              response.put("move", "left");
+        else if (xHead > safeFood.get("x").intValue() && left){
+          //check if safe/best move
+          response.put("move", "left");
           }
-            if (yHead > safeFood.get("y").intValue() && down){
-              //check if safe/best move
-              response.put("move", "down");
+        if (yHead > safeFood.get("y").intValue() && down){
+          //check if safe/best move
+          response.put("move", "down");
           }
-            else if (yhead < safeFood.get("y").intValue() && up){
-              //check if safe/best move
-              response.put("move", "up");
-          }
-      			*/
+        else if (yhead < safeFood.get("y").intValue() && up){
+          //check if safe/best move
+          response.put("move", "up");
+        }
 
 
 			if (up)
