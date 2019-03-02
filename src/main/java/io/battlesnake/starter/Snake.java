@@ -131,8 +131,8 @@ public class Snake {
 			SafeMoves SafeMoves = new SafeMoves(moveRequest);
 
 			// Get height and size
-			int height = GetGameInfo.GetBoardSize();
-			int width = GetGameInfo.GetBoardSize();
+			int height = GetGameInfo.GetBoardHeight();
+			int width = GetGameInfo.GetBoardHeight();
 
 			BoardSnake mySnake = GetGameInfo.GetSelf();
 
