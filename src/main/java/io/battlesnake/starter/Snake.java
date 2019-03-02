@@ -187,7 +187,7 @@ public class Snake {
 			
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
 			// Determine which directions are safe, then make a move.
-			int distance = 0;
+			int distance;
 			int Xfood;
 			int Yfood;
 			JsonNode closestFood;
@@ -197,16 +197,16 @@ public class Snake {
 				Yfood=moveRequest.get("board").get("food").get(k).get("y").intValue();
 				if(k!=0){
 					if(distance < Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){
-						System.out.println("Distance: " + distance);
+						
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
 					}
 					else{
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 					}
-				}
-					
+				}		
 			}
+			System.out.println("Shortest Distance: " + distance);
 
 			
 			if (up)
