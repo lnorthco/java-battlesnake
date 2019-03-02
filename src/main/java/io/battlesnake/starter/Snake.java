@@ -152,47 +152,6 @@ public class Snake {
 			System.out.println("Is right safe?" + SafeMoves.right);
 			System.out.println("Turn: " + GetGameInfo.GetRound());
 
-			JsonNode myHead = moveRequest.get("you").get("body").get(0);
-			JsonNode snakes = moveRequest.get("board").get("snakes");
-			int numOfSnakes = snakes.size();
-
-			//Setup some boolean's to see which directions we can go safely.
-			boolean up = true;
-			boolean down = true;
-			boolean left = true;
-			boolean right = true;
-
-			  //check edges
-			if(myHead.get("y").intValue() == 0) up=false;
-			if(myHead.get("y").intValue() == height) down=false;
-			if(myHead.get("x").intValue() == 0) left=false;
-			if(myHead.get("x").intValue() == width)right=false;
-
-
-			//Get new possible head locations
-			int yHead = myHead.get("y").intValue();
-			int xHead = myHead.get("x").intValue();
-			JsonNode snakeBody;
-
-			//interating through our snakes
-			for(int j=0; j<numOfSnakes; j++) {
-				snakeBody = snakes.get(j).get("body");
-				//System.out.println("snakeBody="+snakeBody);
-				int snakeSize = snakeBody.size();
-				//System.out.println("snakeSize="+snakeSize);
-
-				//interating through snake bodies and checking if any points match our new head locations
-				for(int i=0; i<snakeSize-1; i++){
-					int snakeBodyX = snakeBody.get(i).get("x").intValue();
-					int snakeBodyY = snakeBody.get(i).get("y").intValue();
-
-					if(snakeBodyX == xHead && snakeBodyY == yHead-1)up=false;
-					if(snakeBodyX == xHead && snakeBodyY == yHead+1)down=false;
-					if(snakeBodyX == xHead-1 && snakeBodyY == yHead)left=false;
-					if(snakeBodyX == xHead+1 && snakeBodyY == yHead)right=false;
-				}
-			}
-
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
 			// Determine which directions are safe, then make a move. 
 			int Xfood;
@@ -205,11 +164,11 @@ public class Snake {
 				Yfood=moveRequest.get("board").get("food").get(k).get("y").intValue();
 
 				if(k==0){
-					distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
+					distance = Math.abs(mySnake.head.x - Xfood) + Math.abs(mySnake.head.y - Yfood);
 					}
 				else{
-					if(distance > Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){
-						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
+					if(distance > Math.abs(mySnake.head.x - Xfood) + Math.abs(mySnake.head.y - Yfood)){
+						distance = Math.abs(mySnake.head.x - Xfood) + Math.abs(mySnake.head.y - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
 					}
 
@@ -221,22 +180,22 @@ public class Snake {
 			System.out.println("Shortest Distance: " + distance);
 
       if (mySnake.health < 90){
-        if (xHead < closestFood.get("x").intValue() && right){
+        if (mySnake.head.x < closestFood.get("x").intValue() && SafeMoves.right){
           //check if safe/best move
           response.put("move", "right");
           System.out.println("Opt A");
           }
-        else if (xHead > closestFood.get("x").intValue() && left){
+        else if (mySnake.head.x > closestFood.get("x").intValue() && SafeMoves.left){
           //check if safe/best move
           response.put("move", "left");
           System.out.println("Opt B");
           }
-        else if (yHead < closestFood.get("y").intValue() && down){
+        else if (mySnake.head.y < closestFood.get("y").intValue() && SafeMoves.down){
           //check if safe/best move
           response.put("move", "down");
           System.out.println("Opt C");
           }
-        else if (yHead > closestFood.get("y").intValue() && up){
+        else if (mySnake.head.y > closestFood.get("y").intValue() && SafeMoves.up){
           //check if safe/best move
           response.put("move", "up");
           System.out.println("Opt D");
@@ -244,22 +203,22 @@ public class Snake {
       }
 
 
-			else if (mySnake.health >= 90 && up)
+			else if (mySnake.health >= 90 && SafeMoves.up)
 			{
 				response.put("move", "up");
 				System.out.println("Opt E");
 			}
-			else if (mySnake.health >= 90 && down)
+			else if (mySnake.health >= 90 && SafeMoves.down)
 			{
 				response.put("move", "down");
 				System.out.println("Opt F");
 			}
-			else if (mySnake.health >= 90 && left)
+			else if (mySnake.health >= 90 && SafeMoves.left)
 			{
 				response.put("move", "left");
 				System.out.println("Opt G");
 			}
-			else if (mySnake.health >= 90 && right)
+			else if (mySnake.health >= 90 && SafeMoves.right)
 			{
 				response.put("move", "right");
 				System.out.println("Opt H");
