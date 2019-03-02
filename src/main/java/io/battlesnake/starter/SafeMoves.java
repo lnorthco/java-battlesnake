@@ -27,12 +27,25 @@ public class SafeMoves {
 		{
 			BoardSnake mySnake = GetGameInfo.GetSelf();
 			
-			// Edge detection
+			// Edge detection x
 			if (mySnake.head.x == 0)
 			{
-				
+				left = false;
+			}
+			if (mySnake.head.x == GetGameInfo.GetBoardSize())
+			{
+				right = false;
 			}
 			
+			// Edge detection y
+			if (mySnake.head.y == 0)
+			{
+				up = false;
+			}
+			if (mySnake.head.y == GetGameInfo.GetBoardSize())
+			{
+				down = false;
+			}
 		}
 	}
 }
