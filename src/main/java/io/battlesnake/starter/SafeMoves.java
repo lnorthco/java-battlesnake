@@ -7,10 +7,18 @@ public class SafeMoves {
 	GetGameInfo GetGameInfo;
 	
 	boolean up;
-	boolean down;
-	boolean left;
-	boolean right;
-	
+    boolean up2;
+    boolean upleft;
+    boolean upright;
+    boolean down;
+    boolean down2;
+    boolean downleft;
+    boolean downright;
+    boolean left;
+    boolean left2;
+    boolean right;
+	boolean right2;
+
 	public SafeMoves(JsonNode moveRequest)
 	{
 		this.moveRequest = moveRequest;
@@ -18,9 +26,17 @@ public class SafeMoves {
 		
 		// All directions are safe unless declared not so
 		up = true;
+		up2 = true;
+		upleft = true;
+		upright = true;
 		down = true;
+		down2 = true;
+		downleft = true;
+		downright = true;
 		left = true;
+		left2 = true;
 		right = true;
+		right2 = true;
 		
 		BoardSnake mySnake = GetGameInfo.GetSelf();
 		
@@ -29,19 +45,47 @@ public class SafeMoves {
 		{
 			left = false;
 		}
+		if (mySnake.head.x == 1){
+			left2 = false;
+		}
 		if (mySnake.head.x == GetGameInfo.GetBoardWidth())
 		{
 			right = false;
 		}
+		if (mySnake.head.x == GetGameInfo.GetBoardWidth() - 1){
+			right2 = false;
+		}
+
+		
+		// corner detect.
+		if (mySnake.head.x == 0 && mySnake.head.y == 0){
+			upleft = false;
+		}
+		if(mySnake.head.x == GetGameInfo.GetBoardWidth() && mySnake.head.y == 0){
+			upright = false;
+		}
+		if(mySnake.head.x == 0 && mySnake.head.y == GetGameInfo.GetBoardWidth()){
+			downleft = false;
+		}
+		if(mySnake.head.x == GetGameInfo.GetBoardWidth() && mySnake.head.y == GetGameInfo.GetBoardWidth()){
+			downright = false;
+		}
+		
 		
 		// Edge detection y
 		if (mySnake.head.y == 0)
 		{
 			up = false;
 		}
+		if (mySnake.head.y == 1){
+			up2 = false;
+		}
 		if (mySnake.head.y == GetGameInfo.GetBoardWidth())
 		{
 			down = false;
+		}
+		if(mySnake.head.y == GetGameInfo.GetBoardWidth()-1){
+			down2 = false;
 		}
 		
 		// Iterate over snakes and get safe values. This happens each move when a new SafeMoves object is initialized.
