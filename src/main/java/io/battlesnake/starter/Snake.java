@@ -271,6 +271,7 @@ public class Snake {
 			// What happens if all the above fail? (we die, ofc, but will it crash?)
 
             //response.put("move", "left");
+      		System.out.println("RespLen: " + response.toString());
             return response;
         }
 
