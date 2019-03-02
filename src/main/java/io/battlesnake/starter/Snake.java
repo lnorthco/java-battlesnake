@@ -238,7 +238,7 @@ public class Snake {
       }
 
 
-			else if (mySnake.health > 90 && up
+			else if (mySnake.health > 90 && up)
 			{
 				response.put("move", "up");
 			}
