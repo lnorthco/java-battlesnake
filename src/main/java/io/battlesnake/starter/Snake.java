@@ -178,6 +178,23 @@ public class Snake {
 
 			System.out.println("closestFood="+closestFood);
 			System.out.println("Shortest Distance: " + distance);
+			boolean goUp = false;
+			boolean goDown = false;
+			boolean goLeft = false;
+			boolean goRight = false;
+			if(SafeMoves.upsafe >= SafeMoves.downsafe && SafeMoves.upsafe >= SafeMoves.leftsafe && SafeMoves.upsafe >= SafeMoves.rightsafe && SafeMoves.up){
+				goUp = true;
+			}
+			if(SafeMoves.downsafe >= SafeMoves.upsafe && SafeMoves.downsafe >= SafeMoves.leftsafe && SafeMoves.downsafe >= SafeMoves.rightsafe && SafeMoves.down){
+				goDown = true;
+			}
+			if(SafeMoves.leftsafe >= SafeMoves.downsafe && SafeMoves.leftsafe >= SafeMoves.upsafe && SafeMoves.leftsafe >= SafeMoves.rightsafe && SafeMoves.left){
+				goLeft = true;
+			}
+			if(SafeMoves.rightsafe >= SafeMoves.downsafe && SafeMoves.rightsafe >= SafeMoves.leftsafe && SafeMoves.rightsafe >= SafeMoves.upsafe && SafeMoves.right){
+				goRight = true;
+			}
+
 
       if (mySnake.health < 90){
         if (mySnake.head.x < closestFood.get("x").intValue() && SafeMoves.right){
@@ -201,24 +218,6 @@ public class Snake {
           System.out.println("Opt D");
         }
       }
-	  
-	  boolean goUp = false;
-	  boolean goDown = false;
-	  boolean goLeft = false;
-	  boolean goRight = false;
-	  
-	  if(SafeMoves.upsafe >= SafeMoves.downsafe && SafeMoves.upsafe >= SafeMoves.leftsafe && SafeMoves.upsafe >= SafeMoves.rightsafe && SafeMoves.up){
-		  goUp = true;
-	  }
-	  if(SafeMoves.downsafe >= SafeMoves.upsafe && SafeMoves.downsafe >= SafeMoves.leftsafe && SafeMoves.downsafe >= SafeMoves.rightsafe && SafeMoves.down){
-		  goDown = true;
-	  }
-	  if(SafeMoves.leftsafe >= SafeMoves.downsafe && SafeMoves.leftsafe >= SafeMoves.upsafe && SafeMoves.leftsafe >= SafeMoves.rightsafe && SafeMoves.left){
-		  goLeft = true;
-	  }
-	  if(SafeMoves.rightsafe >= SafeMoves.downsafe && SafeMoves.rightsafe >= SafeMoves.leftsafe && SafeMoves.rightsafe >= SafeMoves.upsafe && SafeMoves.right){
-		  goRight = true;
-	  }
 
 
 			else if (mySnake.health >= 90 && goUp)
