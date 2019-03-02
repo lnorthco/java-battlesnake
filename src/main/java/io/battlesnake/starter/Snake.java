@@ -201,7 +201,7 @@ public class Snake {
 					distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 					}
 				else{
-					if(distance < Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){					
+					if(distance > Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){					
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
 					}
