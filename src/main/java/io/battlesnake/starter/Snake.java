@@ -132,6 +132,11 @@ public class Snake {
 			int height = GetGameInfo.GetBoardSize();
 			int width = GetGameInfo.GetBoardSize();
 			
+			BoardSnake mySnake = GetGameInfo.GetSelf();
+			
+			System.out.println("Health " + mySnake.health);
+			System.out.println("HeadPos " + mySnake.head);
+			
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
 			int numOfSnakes = snakes.size();
