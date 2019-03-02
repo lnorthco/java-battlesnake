@@ -249,17 +249,17 @@ public class Snake {
 				response.put("move", "up");
 				System.out.println("Opt E");
 			}
-			else if (mySnake.health > 90 && down)
+			else if (mySnake.health >= 90 && down)
 			{
 				response.put("move", "down");
 				System.out.println("Opt F");
 			}
-			else if (mySnake.health > 90 && left)
+			else if (mySnake.health >= 90 && left)
 			{
 				response.put("move", "left");
 				System.out.println("Opt G");
 			}
-			else if (mySnake.health > 90 && right)
+			else if (mySnake.health >= 90 && right)
 			{
 				response.put("move", "right");
 				System.out.println("Opt H");
