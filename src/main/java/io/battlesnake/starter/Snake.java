@@ -208,6 +208,7 @@ public class Snake {
 				distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 				}	
 			}
+			System.out.println("Distance: " + distance);
 			
 			if (up)
 			{
