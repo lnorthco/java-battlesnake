@@ -224,18 +224,22 @@ public class Snake {
         if (xHead < closestFood.get("x").intValue() && right){
           //check if safe/best move
           response.put("move", "right");
+          System.out.println("Opt A");
           }
         else if (xHead > closestFood.get("x").intValue() && left){
           //check if safe/best move
           response.put("move", "left");
+          System.out.println("Opt B");
           }
         else if (yHead < closestFood.get("y").intValue() && down){
           //check if safe/best move
           response.put("move", "down");
+          System.out.println("Opt C");
           }
         else if (yHead > closestFood.get("y").intValue() && up){
           //check if safe/best move
           response.put("move", "up");
+          System.out.println("Opt D");
         }
       }
 
@@ -243,18 +247,26 @@ public class Snake {
 			else if (mySnake.health >= 90 && up)
 			{
 				response.put("move", "up");
+				System.out.println("Opt E");
 			}
 			else if (mySnake.health > 90 && down)
 			{
 				response.put("move", "down");
+				System.out.println("Opt F");
 			}
 			else if (mySnake.health > 90 && left)
 			{
 				response.put("move", "left");
+				System.out.println("Opt G");
 			}
 			else if (mySnake.health > 90 && right)
 			{
 				response.put("move", "right");
+				System.out.println("Opt H");
+			}
+			else
+			{
+				System.out.println("Opt H - NONE!");
 			}
 			// What happens if all the above fail? (we die, ofc, but will it crash?)
 
