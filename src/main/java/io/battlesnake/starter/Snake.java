@@ -1,5 +1,7 @@
 package io.battlesnake.starter;
 
+import java.lang.Math;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -173,6 +175,25 @@ public class Snake {
 			
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
 			// Determine which directions are safe, then make a move.
+			int distance = 0;
+			int Xfood;
+			int Yfood;
+			JsonNode closestFood;
+			int numOfFood = moveRequest.get("board").get("food").size();
+			for(int k=0;k<numOfFood;k++){
+				Xfood=moveRequest.get("board").get("food").get(k).get("x").intValue();
+				Yfood=moveRequest.get("board").get("food").get(k).get("y").intValue();
+				if(k!=0){
+					if(distance < Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){
+						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
+						closestFood = moveRequest.get("board").get("food").get(k);
+					}
+				}
+				else{
+				distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
+				}	
+			}
+			
 			if (up)
 			{
 				response.put("move", "up");
