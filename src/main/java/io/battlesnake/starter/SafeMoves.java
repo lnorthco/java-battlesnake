@@ -44,7 +44,9 @@ public class SafeMoves {
 		left2 = true;
 		right = true;
 		right2 = true;
-
+		
+		
+		//Higher values mean safer moves
 		upsafe = 4;
 		downsafe = 4;
 		leftsafe = 4;

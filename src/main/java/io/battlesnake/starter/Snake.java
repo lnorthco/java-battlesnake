@@ -201,24 +201,42 @@ public class Snake {
           System.out.println("Opt D");
         }
       }
+	  
+	  boolean goUp = false;
+	  boolean goDown = false;
+	  boolean goLeft = false;
+	  boolean goRight = false;
+	  
+	  if(SafeMoves.upsafe >= SafeMoves.downsafe && SafeMoves.upsafe >= SafeMoves.leftsafe && SafeMoves.upsafe >= SafeMoves.rightsafe && SafeMoves.up){
+		  goUp = true;
+	  }
+	  if(SafeMoves.downsafe >= SafeMoves.upsafe && SafeMoves.downsafe >= SafeMoves.leftsafe && SafeMoves.downsafe >= SafeMoves.rightsafe && SafeMoves.down){
+		  goDown = true;
+	  }
+	  if(SafeMoves.leftsafe >= SafeMoves.downsafe && SafeMoves.leftsafe >= SafeMoves.upsafe && SafeMoves.leftsafe >= SafeMoves.rightsafe && SafeMoves.left){
+		  goLeft = true;
+	  }
+	  if(SafeMoves.rightsafe >= SafeMoves.downsafe && SafeMoves.rightsafe >= SafeMoves.leftsafe && SafeMoves.rightsafe >= SafeMoves.upsafe && SafeMoves.right){
+		  goRight = true;
+	  }
 
 
-			else if (mySnake.health >= 90 && SafeMoves.up)
+			else if (mySnake.health >= 90 && goUp)
 			{
 				response.put("move", "up");
 				System.out.println("Opt E");
 			}
-			else if (mySnake.health >= 90 && SafeMoves.down)
+			else if (mySnake.health >= 90 && goDown)
 			{
 				response.put("move", "down");
 				System.out.println("Opt F");
 			}
-			else if (mySnake.health >= 90 && SafeMoves.left)
+			else if (mySnake.health >= 90 && goLeft)
 			{
 				response.put("move", "left");
 				System.out.println("Opt G");
 			}
-			else if (mySnake.health >= 90 && SafeMoves.right)
+			else if (mySnake.health >= 90 && goRight)
 			{
 				response.put("move", "right");
 				System.out.println("Opt H");
