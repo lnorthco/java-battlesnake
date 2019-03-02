@@ -182,7 +182,7 @@ public class Snake {
 				//System.out.println("snakeSize="+snakeSize);
 
 				//interating through snake bodies and checking if any points match our new head locations
-				for(int i=0; i<snakeSize; i++){
+				for(int i=0; i<snakeSize-1; i++){
 					int snakeBodyX = snakeBody.get(i).get("x").intValue();
 					int snakeBodyY = snakeBody.get(i).get("y").intValue();
 
