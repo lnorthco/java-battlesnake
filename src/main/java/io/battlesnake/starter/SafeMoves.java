@@ -20,10 +20,10 @@ public class SafeMoves {
 	boolean right2;
 
 	//Safety counters
-	int upsafe = 3;
-	int downsafe = 3;
-	int leftsafe = 3;
-	int rightsafe = 3;
+	int upsafe;
+	int downsafe;
+	int leftsafe;
+	int rightsafe;
 
 
 	public SafeMoves(JsonNode moveRequest)
@@ -44,6 +44,11 @@ public class SafeMoves {
 		left2 = true;
 		right = true;
 		right2 = true;
+
+		upsafe = 4;
+		downsafe = 4;
+		leftsafe = 4;
+		rightsafe = 4;
 		
 		BoardSnake mySnake = GetGameInfo.GetSelf();
 		
