@@ -1,12 +1,15 @@
 package io.battlesnake.starter;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 public class BoardSnake {
 	public String id;
 	public String name;
 	public int health;
-	public List<BoardSnakeSegment> body = new ArrayList<BoardSnakeSegment>();
+	public ArrayList<BoardSnakeSegment> body = new ArrayList<BoardSnakeSegment>();
 	
 	public BoardSnake(JsonNode entity){
 		id = entity.get("id").asText();
