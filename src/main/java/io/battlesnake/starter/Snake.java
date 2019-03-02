@@ -178,10 +178,10 @@ public class Snake {
 
 			System.out.println("closestFood="+closestFood);
 			System.out.println("Shortest Distance: " + distance);
-			System.out.println("downsafe="+downsafe);
-			System.out.println("upsafe="+upsafe);
-			System.out.println("leftsafe="+leftsafe);
-			System.out.println("rightsafe="+rightsafe);
+			System.out.println("downsafe="+SafeMoves.downsafe);
+			System.out.println("upsafe="+SafeMoves.upsafe);
+			System.out.println("leftsafe="+SafeMoves.leftsafe);
+			System.out.println("rightsafe="+SafeMoves.rightsafe);
 			boolean goUp = false;
 			boolean goDown = false;
 			boolean goLeft = false;
