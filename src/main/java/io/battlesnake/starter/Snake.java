@@ -208,6 +208,7 @@ public class Snake {
 				}		
 			}
 			System.out.println("Shortest Distance: " + distance);
+			System.out.println("closestFood="+closestFood);
 
 			
 			if (up)
