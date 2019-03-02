@@ -191,7 +191,7 @@ public class Snake {
 			int Xfood;
 			int Yfood;
 			int distance = 0;
-			JsonNode closestFood;
+			JsonNode closestFood = moveRequest.get("board").get("food").get(0);
 			int numOfFood = moveRequest.get("board").get("food").size();
 			for(int k=0;k<numOfFood;k++){
 				Xfood=moveRequest.get("board").get("food").get(k).get("x").intValue();
