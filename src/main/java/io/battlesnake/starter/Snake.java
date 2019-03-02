@@ -191,7 +191,7 @@ public class Snake {
 			int Xfood;
 			int Yfood;
 			int distance = 0;
-			JsonNode closestFood;
+			JsonNode closestFood = moveRequest.get("board").get("food").get(0);
 			int numOfFood = moveRequest.get("board").get("food").size();
 			for(int k=0;k<numOfFood;k++){
 				Xfood=moveRequest.get("board").get("food").get(k).get("x").intValue();
@@ -201,18 +201,22 @@ public class Snake {
 					distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 					}
 				else{
-					if(distance < Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){					
+					if(distance > Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){					
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
 					}
 					
 				}
 			int tempDist =	Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
+<<<<<<< HEAD
 			System.out.println("tempDist="+tempDist);
+=======
+			//System.out.println("tempDist="+tempDist);
+>>>>>>> 40e2af60e462be3166d02c06009886fca63b15dd
 			}
 			
-			System.out.println("closestFood="+closestFood);
-			System.out.println("Shortest Distance: " + distance);
+			//System.out.println("closestFood="+closestFood);
+			//System.out.println("Shortest Distance: " + distance);
 		
 
 			
