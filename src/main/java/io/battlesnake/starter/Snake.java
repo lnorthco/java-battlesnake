@@ -218,21 +218,21 @@ public class Snake {
 			//System.out.println("closestFood="+closestFood);
 			//System.out.println("Shortest Distance: " + distance);
 
-            /*if (hp <= 50){
+        /*if (mySnake.health <= 50){
             if (xHead < safeFood.get("x").intValue() && right){
-              //check if safe
+              //check if safe/best move
               response.put("move", "right");
           }
             else if (xHead > safeFood.get("x").intValue() && left){
-              //check if safe
+              //check if safe/best move
               response.put("move", "left");
           }
             if (yHead > safeFood.get("y").intValue() && down){
-              //check if safe
+              //check if safe/best move
               response.put("move", "down");
           }
             else if (yhead < safeFood.get("y").intValue() && up){
-              //check if safe
+              //check if safe/best move
               response.put("move", "up");
           }
       			*/
