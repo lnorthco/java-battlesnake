@@ -218,7 +218,7 @@ public class Snake {
 			System.out.println("closestFood="+closestFood);
 			System.out.println("Shortest Distance: " + distance);
 
-      if (mySnake.health <= 90){
+      if (mySnake.health < 90){
         if (xHead < closestFood.get("x").intValue() && right){
           //check if safe/best move
           response.put("move", "right");
@@ -238,7 +238,7 @@ public class Snake {
       }
 
 
-			else if (mySnake.health > 90 && up)
+			else if (mySnake.health >= 90 && up)
 			{
 				response.put("move", "up");
 			}
