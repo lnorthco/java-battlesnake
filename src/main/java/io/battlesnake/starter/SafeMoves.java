@@ -122,20 +122,78 @@ public class SafeMoves {
 				if (snakeSegment.x == mySnake.head.x && snakeSegment.y == mySnake.head.y - 1)
 				{
 					up = false;
+					upsafe--;
 				}
+				if (snakeSegment.x == mySnake.head.x && snakeSegment.y == mySnake.head.y - 2)
+				{
+					up2 = false;
+					upsafe--;
+				}		
+				
+				if (snakeSegment.x == mySnake.head.x - 1 && snakeSegment.y == mySnake.head.y - 1)
+				{
+					upleft = false;
+					upsafe--;
+					leftsafe--;
+				}
+
+				if (snakeSegment.x == mySnake.head.x + 1  && snakeSegment.y == mySnake.head.y - 1)
+				{
+					upright = false;
+					upsafe--;
+					rightsafe--;
+				}
+
 				if (snakeSegment.x == mySnake.head.x && snakeSegment.y == mySnake.head.y + 1)
 				{
 					down = false;
+					downsafe--;
 				}
 				
+				if (snakeSegment.x == mySnake.head.x && snakeSegment.y == mySnake.head.y + 2)
+				{
+					down2 = false;
+					downsafe--;
+				}
+
+				if (snakeSegment.x == mySnake.head.x - 1 && snakeSegment.y == mySnake.head.y + 1)
+				{
+					downleft = false;
+					downsafe--;
+					leftsafe--;
+				}
+
+				if (snakeSegment.x == mySnake.head.x + 1 && snakeSegment.y == mySnake.head.y + 1)
+				{
+					downright = false;
+					downsafe--;
+					rightsafe--;
+				}
+
 				if (snakeSegment.x == mySnake.head.x - 1 && snakeSegment.y == mySnake.head.y)
 				{
 					left = false;
+					leftsafe--;
 				}
+
+				if (snakeSegment.x == mySnake.head.x - 2 && snakeSegment.y == mySnake.head.y)
+				{
+					left2 = false;
+					leftsafe--;
+				}
+
 				if (snakeSegment.x == mySnake.head.x + 1 && snakeSegment.y == mySnake.head.y)
 				{
 					right = false;
+					rightsafe--;
 				}
+
+				if (snakeSegment.x == mySnake.head.x + 2 && snakeSegment.y == mySnake.head.y)
+				{
+					right2 = false;
+					rightsafe--;
+				}
+
 			}
 		}
 	}
