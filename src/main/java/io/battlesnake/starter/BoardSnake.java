@@ -1,6 +1,5 @@
 package io.battlesnake.starter;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.JsonNode;
