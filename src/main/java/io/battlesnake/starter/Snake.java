@@ -197,15 +197,17 @@ public class Snake {
 				Yfood=moveRequest.get("board").get("food").get(k).get("y").intValue();
 				if(k!=0){
 					if(distance < Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){
+						System.out.println("Distance: " + distance);
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
 					}
+					else{
+						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
+					}
 				}
-				else{
-				distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
-				}	
+					
 			}
-			System.out.println("Distance: " + distance);
+
 			
 			if (up)
 			{
