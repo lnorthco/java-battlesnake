@@ -21,5 +21,7 @@ public class BoardSnake {
 			body.add(new BoardSnakeSegment(snakeBodyX, snakeBodyY));
 			
 		}
+		
+	}
 
 }
