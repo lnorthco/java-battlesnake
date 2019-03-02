@@ -22,29 +22,47 @@ public class SafeMoves {
 		left = true;
 		right = true;
 		
+		BoardSnake mySnake = GetGameInfo.GetSelf();
+		
+		// Edge detection x
+		if (mySnake.head.x == 0)
+		{
+			left = false;
+		}
+		if (mySnake.head.x == GetGameInfo.GetBoardSize())
+		{
+			right = false;
+		}
+		
+		// Edge detection y
+		if (mySnake.head.y == 0)
+		{
+			up = false;
+		}
+		if (mySnake.head.y == GetGameInfo.GetBoardSize())
+		{
+			down = false;
+		}
+		
 		// Iterate over snakes and get safe values. This happens each move when a new SafeMoves object is initialized.
 		for (BoardSnake snake : GetGameInfo.GetSnakes())
 		{
-			BoardSnake mySnake = GetGameInfo.GetSelf();
-			
-			// Edge detection x
-			if (mySnake.head.x == 0)
+			// Iterate over all segments
+			for (BoardSnakeSegment snakeSegment : snake.body)
 			{
-				left = false;
-			}
-			if (mySnake.head.x == GetGameInfo.GetBoardSize())
-			{
-				right = false;
-			}
-			
-			// Edge detection y
-			if (mySnake.head.y == 0)
-			{
-				up = false;
-			}
-			if (mySnake.head.y == GetGameInfo.GetBoardSize())
-			{
-				down = false;
+				// Something to the right
+				if (mySnake.head.x == snakeSegment.x - 1)
+				{
+					right = false;
+				}
+				// To the left
+				if (mySnake.head.x == snakeSegment.x + 1)
+				{
+					left = false;
+				}
+				
+				// Something above
+				// TBD!
 			}
 		}
 	}
