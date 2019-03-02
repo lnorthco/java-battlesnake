@@ -192,7 +192,7 @@ public class Snake {
 			}
 
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
-			// Determine which directions are safe, then make a move.
+			// Determine which directions are safe, then make a move. 
 			int Xfood;
 			int Yfood;
 			int distance = 0;
