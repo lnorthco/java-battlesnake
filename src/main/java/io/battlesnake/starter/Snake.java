@@ -235,9 +235,10 @@ public class Snake {
           //check if safe/best move
           response.put("move", "up");
         }
+      }
 
 
-			else if (mySnake.health > 90 && up)
+			else if (mySnake.health > 90 && up
 			{
 				response.put("move", "up");
 			}
