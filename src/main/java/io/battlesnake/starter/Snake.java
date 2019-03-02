@@ -144,6 +144,10 @@ public class Snake {
 				System.out.println("Health itersnake " + bs.health);
 				System.out.println("HeadPos itersnake " + bs.head);
 			}
+			System.out.println("Is up safe?" + SafeMoves.up);
+			System.out.println("Is down safe?" + SafeMoves.down);
+			System.out.println("Is left safe?" + SafeMoves.left);
+			System.out.println("Is right safe?" + SafeMoves.right);
 			
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
