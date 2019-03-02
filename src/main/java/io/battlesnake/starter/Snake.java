@@ -129,6 +129,7 @@ public class Snake {
 			// and allows easy access to information throughout the move function.
 			GetGameInfo GetGameInfo = new GetGameInfo(moveRequest); 
 			
+			// Get height and size
 			int height = GetGameInfo.GetBoardSize();
 			int width = GetGameInfo.GetBoardSize();
 			
