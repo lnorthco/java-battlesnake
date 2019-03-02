@@ -18,5 +18,6 @@ public class GetGameInfo {
 	public BoardSnake GetSelf()
 	{
 		// Make a snake here, using info from moveRequest.
+		BoardSnake Snake = new BoardSnake(moveRequest.get("you"));
 	}
 }
