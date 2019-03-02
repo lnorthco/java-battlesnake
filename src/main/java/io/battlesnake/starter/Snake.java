@@ -208,11 +208,11 @@ public class Snake {
 					
 				}
 			int tempDist =	Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
-			System.out.println("tempDist="+tempDist);
+			//System.out.println("tempDist="+tempDist);
 			}
 			
-			System.out.println("closestFood="+closestFood);
-			System.out.println("Shortest Distance: " + distance);
+			//System.out.println("closestFood="+closestFood);
+			//System.out.println("Shortest Distance: " + distance);
 		
 
 			
