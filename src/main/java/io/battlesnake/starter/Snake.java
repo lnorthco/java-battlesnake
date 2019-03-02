@@ -205,10 +205,15 @@ public class Snake {
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
 					}
-				}		
+					
+				}
+			int tempDist =	Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood));
+			System.out.println("tempDist="+tempDist);
 			}
-			System.out.println("Shortest Distance: " + distance);
+			
 			System.out.println("closestFood="+closestFood);
+			System.out.println("Shortest Distance: " + distance);
+		
 
 			
 			if (up)
