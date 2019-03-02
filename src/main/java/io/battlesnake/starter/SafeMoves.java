@@ -49,27 +49,7 @@ public class SafeMoves {
 		{
 			// Iterate over all segments
 			for (BoardSnakeSegment snakeSegment : snake.body)
-			{/*
-				// Something to the right
-				if (mySnake.head.x == snakeSegment.x - 1)
-				{
-					right = false;
-				}
-				// To the left
-				if (mySnake.head.x == snakeSegment.x + 1)
-				{
-					left = false;
-				}
-				
-				// Something above
-				if (mySnake.head.y == snakeSegment.y + 1)
-				{
-					up = false;
-				}
-				if (mySnake.head.y == snakeSegment.y - 1)
-				{
-					down = false;
-				}*/
+			{
 				
 				if (snakeSegment.x == mySnake.head.x && snakeSegment.y == mySnake.head.y - 1)
 				{
