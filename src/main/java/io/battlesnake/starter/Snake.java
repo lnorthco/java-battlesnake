@@ -33,7 +33,7 @@ public class Snake {
      *
      * @param args are ignored.
      */
-    
+
     // Mersid says hello!
     public static void main(String[] args) {
         String port = System.getProperty("PORT");
@@ -44,7 +44,7 @@ public class Snake {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Battlesnake documentation can be found at " + 
+        get("/", (req, res) -> "Battlesnake documentation can be found at " +
             "<a href=\"https://docs.battlesnake.io\">https://docs.battlesnake.io</a>.");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
@@ -127,18 +127,18 @@ public class Snake {
             Map<String, String> response = new HashMap<>();
             // Instantiate a GetGameInfo, containing relevant information. This cleans up the function
 			// and allows easy access to information throughout the move function.
-			GetGameInfo GetGameInfo = new GetGameInfo(moveRequest); 
+			GetGameInfo GetGameInfo = new GetGameInfo(moveRequest);
 			SafeMoves SafeMoves = new SafeMoves(moveRequest);
-			
+
 			// Get height and size
 			int height = GetGameInfo.GetBoardSize();
 			int width = GetGameInfo.GetBoardSize();
-			
+
 			BoardSnake mySnake = GetGameInfo.GetSelf();
-			
+
 			System.out.println("Health " + mySnake.health);
 			System.out.println("HeadPos " + mySnake.head);
-			
+
 			for (BoardSnake bs : GetGameInfo.GetSnakes())
 			{
 				System.out.println("Health itersnake " + bs.health);
@@ -148,48 +148,48 @@ public class Snake {
 			System.out.println("Is down safe?" + SafeMoves.down);
 			System.out.println("Is left safe?" + SafeMoves.left);
 			System.out.println("Is right safe?" + SafeMoves.right);
-			
+
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
 			int numOfSnakes = snakes.size();
-			
-			//Setup some boolean's to see which directions we can go safely.			
+
+			//Setup some boolean's to see which directions we can go safely.
 			boolean up = true;
 			boolean down = true;
 			boolean left = true;
 			boolean right = true;
-			
+
 			  //check edges
 			if(myHead.get("y").intValue() == 0) up=false;
 			if(myHead.get("y").intValue() == height) down=false;
 			if(myHead.get("x").intValue() == 0) left=false;
 			if(myHead.get("x").intValue() == width)right=false;
 
-			
+
 			//Get new possible head locations
 			int yHead = myHead.get("y").intValue();
 			int xHead = myHead.get("x").intValue();
 			JsonNode snakeBody;
-			
+
 			//interating through our snakes
 			for(int j=0; j<numOfSnakes; j++) {
 				snakeBody = snakes.get(j).get("body");
 				//System.out.println("snakeBody="+snakeBody);
 				int snakeSize = snakeBody.size();
 				//System.out.println("snakeSize="+snakeSize);
-				
+
 				//interating through snake bodies and checking if any points match our new head locations
 				for(int i=0; i<snakeSize; i++){
 					int snakeBodyX = snakeBody.get(i).get("x").intValue();
 					int snakeBodyY = snakeBody.get(i).get("y").intValue();
-					
+
 					if(snakeBodyX == xHead && snakeBodyY == yHead-1)up=false;
 					if(snakeBodyX == xHead && snakeBodyY == yHead+1)down=false;
 					if(snakeBodyX == xHead-1 && snakeBodyY == yHead)left=false;
 					if(snakeBodyX == xHead+1 && snakeBodyY == yHead)right=false;
 				}
-			}	
-			
+			}
+
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
 			// Determine which directions are safe, then make a move.
 			int Xfood;
@@ -200,25 +200,44 @@ public class Snake {
 			for(int k=0;k<numOfFood;k++){
 				Xfood=moveRequest.get("board").get("food").get(k).get("x").intValue();
 				Yfood=moveRequest.get("board").get("food").get(k).get("y").intValue();
-				
+
 				if(k==0){
 					distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 					}
 				else{
-					if(distance > Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){					
+					if(distance > Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood)){
 						distance = Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 						closestFood = moveRequest.get("board").get("food").get(k);
+            //safeFood = moveRequest.get("board").get("food").get(k);
 					}
-					
+
 				}
 
 			}
-			
+
 			//System.out.println("closestFood="+closestFood);
 			//System.out.println("Shortest Distance: " + distance);
-		
 
-			
+            /*if (hp <= 50){
+            if (xHead < safeFood.get("x").intValue() && right){
+              //check if safe
+              response.put("move", "right");
+          }
+            else if (xHead > safeFood.get("x").intValue() && left){
+              //check if safe
+              response.put("move", "left");
+          }
+            if (yHead > safeFood.get("y").intValue() && down){
+              //check if safe
+              response.put("move", "down");
+          }
+            else if (yhead < safeFood.get("y").intValue() && up){
+              //check if safe
+              response.put("move", "up");
+          }
+      			*/
+
+
 			if (up)
 			{
 				response.put("move", "up");
@@ -229,14 +248,14 @@ public class Snake {
 			}
 			else if (left)
 			{
-				response.put("move", "left");	
+				response.put("move", "left");
 			}
 			else if (right)
 			{
 				response.put("move", "right");
 			}
 			// What happens if all the above fail? (we die, ofc, but will it crash?)
-			
+
             //response.put("move", "left");
             return response;
         }
