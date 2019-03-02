@@ -16,6 +16,7 @@ public class GetGameInfo {
 	{
 		return moveRequest.get("board").get("height").intValue() - 1;
 	}
+	
 	public int GetBoardWidth()
 	{
 		return moveRequest.get("board").get("width").intValue() - 1;
