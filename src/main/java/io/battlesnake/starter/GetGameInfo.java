@@ -12,15 +12,25 @@ public class GetGameInfo {
 		this.moveRequest = moveRequest;
 	}
 
-	public int GetBoardSize()
+	public int GetBoardHeight()
 	{
-		return moveRequest.get("board").get("height").intValue() - 1; // Height or width is irrelevant; it's a square arena
+		return moveRequest.get("board").get("height").intValue() - 1;
+	}
+	
+	public int GetBoardWidth()
+	{
+		return moveRequest.get("board").get("width").intValue() - 1;
 	}
 	
 	public BoardSnake GetSelf()
 	{
 		// Make a snake here, using info from moveRequest.
 		return new BoardSnake(moveRequest.get("you"));
+	}
+	
+	public int GetRound()
+	{
+		return moveRequest.get("turn").intValue();
 	}
 	
 	public ArrayList<BoardSnake> GetSnakes()

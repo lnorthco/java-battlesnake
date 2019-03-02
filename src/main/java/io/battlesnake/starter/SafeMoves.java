@@ -29,7 +29,7 @@ public class SafeMoves {
 		{
 			left = false;
 		}
-		if (mySnake.head.x == GetGameInfo.GetBoardSize())
+		if (mySnake.head.x == GetGameInfo.GetBoardWidth())
 		{
 			right = false;
 		}
@@ -39,7 +39,7 @@ public class SafeMoves {
 		{
 			up = false;
 		}
-		if (mySnake.head.y == GetGameInfo.GetBoardSize())
+		if (mySnake.head.y == GetGameInfo.GetBoardWidth())
 		{
 			down = false;
 		}

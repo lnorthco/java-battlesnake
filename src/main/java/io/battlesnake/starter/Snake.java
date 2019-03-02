@@ -133,8 +133,8 @@ public class Snake {
 			SafeMoves SafeMoves = new SafeMoves(moveRequest);
 
 			// Get height and size
-			int height = GetGameInfo.GetBoardSize();
-			int width = GetGameInfo.GetBoardSize();
+			int height = GetGameInfo.GetBoardHeight();
+			int width = GetGameInfo.GetBoardHeight();
 
 			BoardSnake mySnake = GetGameInfo.GetSelf();
 
@@ -150,6 +150,7 @@ public class Snake {
 			System.out.println("Is down safe?" + SafeMoves.down);
 			System.out.println("Is left safe?" + SafeMoves.left);
 			System.out.println("Is right safe?" + SafeMoves.right);
+			System.out.println("Turn: " + GetGameInfo.GetRound());
 
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
@@ -193,7 +194,7 @@ public class Snake {
 			}
 
 			//We now have possible safe moves, now we just need to determine better moves and hunt for food.
-			// Determine which directions are safe, then make a move.
+			// Determine which directions are safe, then make a move. 
 			int Xfood;
 			int Yfood;
 			int distance = 0;
@@ -219,7 +220,7 @@ public class Snake {
 			System.out.println("closestFood="+closestFood);
 			System.out.println("Shortest Distance: " + distance);
 
-      if (mySnake.health <= 50){
+      if (mySnake.health < 90){
         if (xHead < closestFood.get("x").intValue() && right){
           //check if safe/best move
           response.put("move", "right");
@@ -239,19 +240,19 @@ public class Snake {
       }
 
 
-			else if (mySnake.health > 50 && up)
+			else if (mySnake.health >= 90 && up)
 			{
 				response.put("move", "up");
 			}
-			else if (mySnake.health > 50 && down)
+			else if (mySnake.health > 90 && down)
 			{
 				response.put("move", "down");
 			}
-			else if (mySnake.health > 50 && left)
+			else if (mySnake.health > 90 && left)
 			{
 				response.put("move", "left");
 			}
-			else if (mySnake.health > 50 && right)
+			else if (mySnake.health > 90 && right)
 			{
 				response.put("move", "right");
 			}
@@ -268,6 +269,7 @@ public class Snake {
          * @return responses back to the engine are ignored.
          */
         public Map<String, String> end(JsonNode endRequest) {
+        	System.out.println("Game end!");
             Map<String, String> response = new HashMap<>();
             return response;
         }
