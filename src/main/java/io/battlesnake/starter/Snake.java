@@ -132,8 +132,8 @@ public class Snake {
 			int height = GetGameInfo.GetBoardSize();
 			int width = GetGameInfo.GetBoardSize();
 			
-			System.out.println(width);
-			System.out.println(width2);
+			System.out.println("GetGameInfo board width: " + width);
+			System.out.println("Default board width: " + width2);
 			
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
