@@ -226,11 +226,11 @@ public class Snake {
           //check if safe/best move
           response.put("move", "left");
           }
-        else if (yHead > closestFood.get("y").intValue() && down){
+        else if (yHead < closestFood.get("y").intValue() && down){
           //check if safe/best move
           response.put("move", "down");
           }
-        else if (yHead < closestFood.get("y").intValue() && up){
+        else if (yHead > closestFood.get("y").intValue() && up){
           //check if safe/best move
           response.put("move", "up");
         }
