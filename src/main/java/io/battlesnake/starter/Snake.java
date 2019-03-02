@@ -178,6 +178,10 @@ public class Snake {
 
 			System.out.println("closestFood="+closestFood);
 			System.out.println("Shortest Distance: " + distance);
+			System.out.println("downsafe="+downsafe);
+			System.out.println("upsafe="+upsafe);
+			System.out.println("leftsafe="+leftsafe);
+			System.out.println("rightsafe="+rightsafe);
 			boolean goUp = false;
 			boolean goDown = false;
 			boolean goLeft = false;
@@ -196,7 +200,7 @@ public class Snake {
 			}
 
 
-      if (mySnake.health < 90){
+      if (mySnake.health < 50){
         if (mySnake.head.x < closestFood.get("x").intValue() && SafeMoves.right){
           //check if safe/best move
           response.put("move", "right");
@@ -220,22 +224,22 @@ public class Snake {
       }
 
 
-			else if (mySnake.health >= 90 && goUp)
+			else if (mySnake.health >= 50 && goUp)
 			{
 				response.put("move", "up");
 				System.out.println("Opt E");
 			}
-			else if (mySnake.health >= 90 && goDown)
+			else if (mySnake.health >= 50 && goDown)
 			{
 				response.put("move", "down");
 				System.out.println("Opt F");
 			}
-			else if (mySnake.health >= 90 && goLeft)
+			else if (mySnake.health >= 50 && goLeft)
 			{
 				response.put("move", "left");
 				System.out.println("Opt G");
 			}
-			else if (mySnake.health >= 90 && goRight)
+			else if (mySnake.health >= 50 && goRight)
 			{
 				response.put("move", "right");
 				System.out.println("Opt H");

@@ -135,6 +135,9 @@ public class SafeMoves {
 				{
 					up2 = false;
 					upsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						upsafe--;
+					}
 				}		
 				
 				if (snakeSegment.x == mySnake.head.x - 1 && snakeSegment.y == mySnake.head.y - 1)
@@ -142,6 +145,11 @@ public class SafeMoves {
 					upleft = false;
 					upsafe--;
 					leftsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						upsafe--;
+						leftsafe--;
+					}
+
 				}
 
 				if (snakeSegment.x == mySnake.head.x + 1  && snakeSegment.y == mySnake.head.y - 1)
@@ -149,6 +157,10 @@ public class SafeMoves {
 					upright = false;
 					upsafe--;
 					rightsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						upsafe--;
+						rightsafe--;
+					}
 				}
 
 				if (snakeSegment.x == mySnake.head.x && snakeSegment.y == mySnake.head.y + 1)
@@ -161,6 +173,9 @@ public class SafeMoves {
 				{
 					down2 = false;
 					downsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						downsafe--;
+					}
 				}
 
 				if (snakeSegment.x == mySnake.head.x - 1 && snakeSegment.y == mySnake.head.y + 1)
@@ -168,6 +183,10 @@ public class SafeMoves {
 					downleft = false;
 					downsafe--;
 					leftsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						downsafe--;
+						leftsafe--;
+					}
 				}
 
 				if (snakeSegment.x == mySnake.head.x + 1 && snakeSegment.y == mySnake.head.y + 1)
@@ -175,6 +194,10 @@ public class SafeMoves {
 					downright = false;
 					downsafe--;
 					rightsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						downsafe--;
+						rightsafe--;
+					}
 				}
 
 				if (snakeSegment.x == mySnake.head.x - 1 && snakeSegment.y == mySnake.head.y)
@@ -187,6 +210,9 @@ public class SafeMoves {
 				{
 					left2 = false;
 					leftsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						leftsafe--;
+					}
 				}
 
 				if (snakeSegment.x == mySnake.head.x + 1 && snakeSegment.y == mySnake.head.y)
@@ -199,6 +225,9 @@ public class SafeMoves {
 				{
 					right2 = false;
 					rightsafe--;
+					if(snakeSegment.x == snake.head.x && snakeSegment.y == snake.head.y){
+						rightsafe--;
+					}
 				}
 
 			}
