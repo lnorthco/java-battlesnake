@@ -19,6 +19,13 @@ public class SafeMoves {
     boolean right;
 	boolean right2;
 
+	//Safety counters
+	int upsafe = 3;
+	int downsafe = 3;
+	int leftsafe = 3;
+	int rightsafe = 3;
+
+
 	public SafeMoves(JsonNode moveRequest)
 	{
 		this.moveRequest = moveRequest;
@@ -44,31 +51,44 @@ public class SafeMoves {
 		if (mySnake.head.x == 0)
 		{
 			left = false;
+			leftsafe--;
 		}
 		if (mySnake.head.x == 1){
 			left2 = false;
+			leftsafe--;
 		}
 		if (mySnake.head.x == GetGameInfo.GetBoardWidth())
 		{
 			right = false;
+			rightsafe--;
 		}
 		if (mySnake.head.x == GetGameInfo.GetBoardWidth() - 1){
 			right2 = false;
+			rightsafe--;
 		}
 
-		
+
 		// corner detect.
 		if (mySnake.head.x == 0 && mySnake.head.y == 0){
 			upleft = false;
+			leftsafe--;
+			upsafe--;
 		}
 		if(mySnake.head.x == GetGameInfo.GetBoardWidth() && mySnake.head.y == 0){
 			upright = false;
+			upsafe--;
+			rightsafe--;
+
 		}
 		if(mySnake.head.x == 0 && mySnake.head.y == GetGameInfo.GetBoardWidth()){
 			downleft = false;
+			downsafe--;
+			leftsafe--;
 		}
 		if(mySnake.head.x == GetGameInfo.GetBoardWidth() && mySnake.head.y == GetGameInfo.GetBoardWidth()){
 			downright = false;
+			downsafe--;
+			rightsafe--;
 		}
 		
 		
@@ -76,16 +96,20 @@ public class SafeMoves {
 		if (mySnake.head.y == 0)
 		{
 			up = false;
+			upsafe--;
 		}
 		if (mySnake.head.y == 1){
 			up2 = false;
+			upsafe--;
 		}
 		if (mySnake.head.y == GetGameInfo.GetBoardWidth())
 		{
 			down = false;
+			downsafe--;
 		}
 		if(mySnake.head.y == GetGameInfo.GetBoardWidth()-1){
 			down2 = false;
+			downsafe--;
 		}
 		
 		// Iterate over snakes and get safe values. This happens each move when a new SafeMoves object is initialized.
