@@ -1,9 +1,12 @@
 package io.battlesnake.starter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 public class SafeMoves {
-	/*
-	public static boolean isUpSafe()
+	JsonNode moveRequest;
+	
+	public SafeMoves(JsonNode moveRequest)
 	{
-		return 
-	}*/
+		this.moveRequest = moveRequest;
+	}
 }

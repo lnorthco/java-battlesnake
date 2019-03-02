@@ -128,7 +128,9 @@ public class Snake {
             // Instantiate a GetGameInfo, containing relevant information. This cleans up the function
 			// and allows easy access to information throughout the move function.
 			GetGameInfo GetGameInfo = new GetGameInfo(moveRequest); 
+			SafeMoves SafeMoves = new SafeMoves(moveRequest);
 			
+			// Get height and size
 			int height = GetGameInfo.GetBoardSize();
 			int width = GetGameInfo.GetBoardSize();
 			
