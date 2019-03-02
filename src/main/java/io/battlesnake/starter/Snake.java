@@ -207,7 +207,7 @@ public class Snake {
 					}
 					
 				}
-			int tempDist =	Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood));
+			int tempDist =	Math.abs(xHead - Xfood) + Math.abs(yHead - Yfood);
 			System.out.println("tempDist="+tempDist);
 			}
 			
