@@ -246,7 +246,20 @@ public class Snake {
 			}
 			else
 			{
-				System.out.println("Opt H - NONE!");
+				if(SafeMoves.up){
+					response.put("move", "up");
+				}
+				else if (SafeMoves.down){
+					response.put("move", "down");
+				}
+				else if (SafeMoves.left){
+					response.put("move", "left");
+				}
+				else{
+					response.put("move", "right");
+				}
+					
+				System.out.println("Opt I - Nothing looks safe!");
 			}
 			// What happens if all the above fail? (we die, ofc, but will it crash?)
 
