@@ -148,6 +148,7 @@ public class Snake {
 			System.out.println("Is down safe?" + SafeMoves.down);
 			System.out.println("Is left safe?" + SafeMoves.left);
 			System.out.println("Is right safe?" + SafeMoves.right);
+			System.out.println("Turn: " + GetGameInfo.GetRound());
 
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");

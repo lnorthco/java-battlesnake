@@ -23,6 +23,11 @@ public class GetGameInfo {
 		return new BoardSnake(moveRequest.get("you"));
 	}
 	
+	public int GetRound()
+	{
+		return moveRequest.get("turn").intValue();
+	}
+	
 	public ArrayList<BoardSnake> GetSnakes()
 	{
 		ArrayList<BoardSnake> SnakeList = new ArrayList<BoardSnake>();
