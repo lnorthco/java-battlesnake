@@ -267,6 +267,7 @@ public class Snake {
          * @return responses back to the engine are ignored.
          */
         public Map<String, String> end(JsonNode endRequest) {
+        	System.out.println("Game end!");
             Map<String, String> response = new HashMap<>();
             return response;
         }
