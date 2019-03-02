@@ -271,7 +271,7 @@ public class Snake {
 			// What happens if all the above fail? (we die, ofc, but will it crash?)
 
             //response.put("move", "left");
-      		System.out.println("Resppnse: " + response.toString() + ", Length: " + response.toString().length());
+      		System.out.println("Resppnse: " + response.toString() + ", Length: " + (response.toString().length() - 2)); // Discount braces
             return response;
         }
 
