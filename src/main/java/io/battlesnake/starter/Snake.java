@@ -128,8 +128,17 @@ public class Snake {
 			GetGameInfo GetGameInfo = new GetGameInfo(moveRequest); // Instantiate a GetGameInfo, containing relevant information. This cleans up the function
 																	// and allows easy access to information throughout the move function.
 			//Get game variables
-			int height = moveRequest.get("board").get("height").intValue() - 1; // Replaced by GetGameInfo.GetBoardSize()
-			int width = moveRequest.get("board").get("height").intValue() - 1;  // See above
+			//int height = moveRequest.get("board").get("height").intValue() - 1; // Replaced by GetGameInfo.GetBoardSize()
+			//int width2 = moveRequest.get("board").get("height").intValue() - 1;  // See above
+			
+			int height = GetGameInfo.GetBoardSize();
+			int width = GetGameInfo.GetBoardSize();
+			
+			BoardSnake mySnake = GetGameInfo.GetSelf();
+			
+			System.out.println("Health " + mySnake.health);
+			System.out.println("HeadPos " + mySnake.head);
+			
 			JsonNode myHead = moveRequest.get("you").get("body").get(0);
 			JsonNode snakes = moveRequest.get("board").get("snakes");
 			int numOfSnakes = snakes.size();
